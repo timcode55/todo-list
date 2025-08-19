@@ -27,7 +27,7 @@ export const useTodoStore = create<TodoState>()(
       addTodo: (data) => {
         const parsed = todoSchema.safeParse(data);
         if (!parsed.success) {
-          throw new Error(parsed.error.errors.map((e) => e.message).join(", "));
+          throw new Error(parsed.error.issues.map((e) => e.message).join(", "));
         }
         const now = new Date();
         const newTodo: Todo = {
