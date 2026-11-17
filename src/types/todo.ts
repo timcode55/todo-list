@@ -3,8 +3,10 @@ export interface Todo {
   title: string;
   description: string;
   completed: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  /** ISO 8601 timestamp */
+  createdAt: string;
+  /** ISO 8601 timestamp */
+  updatedAt: string;
 }
 
 export interface TodoFormData {
@@ -12,8 +14,4 @@ export interface TodoFormData {
   description: string;
 }
 
-export interface EmailFormData {
-  email: string;
-  subject: string;
-  message: string;
-}
+export type TodoResult = { ok: true } | { ok: false; error: string };

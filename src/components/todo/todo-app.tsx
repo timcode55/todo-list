@@ -1,24 +1,31 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { TodoForm } from "./todo-form";
 import { TodoList } from "./todo-list";
 
 export function TodoApp() {
-  const currentDate = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  // Computed after mount: the server's date/timezone may differ from the client's.
+  const [currentDate, setCurrentDate] = useState("");
+  useEffect(() => {
+    setCurrentDate(
+      new Date().toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+  }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto grid gap-6">
-      <div className="grid gap-2">
+    <div className="w-full max-w-2xl mx-auto grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 gap-2">
         <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
           Todo List
         </h1>
         <p className="text-sm text-black/60 dark:text-white/60">
-          {currentDate}
+          {currentDate || "\u00A0"}
         </p>
       </div>
 

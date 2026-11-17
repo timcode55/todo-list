@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-dvh relative overflow-hidden">
+        <div className="min-h-dvh relative">
           <div className="absolute inset-0 bg-radial bg-grid" />
           <main className="relative z-10">{children}</main>
         </div>

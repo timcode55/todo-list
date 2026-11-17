@@ -129,7 +129,7 @@ body {
   }
 
   .input {
-    @apply h-11 rounded-xl px-4 text-sm outline-none transition-shadow w-full;
+    @apply h-11 rounded-xl px-4 text-base sm:text-sm outline-none transition-shadow w-full;
     background: rgba(255, 255, 255, 0.75);
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
